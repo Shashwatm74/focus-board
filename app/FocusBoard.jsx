@@ -22,36 +22,58 @@ const SUPABASE_ANON =
 const supabase = createClient(SUPABASE_URL, SUPABASE_ANON);
 
 // ─── Styles ───────────────────────────────────────────────
-const FONTS = `@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&display=swap');`;
+// Injected via useEffect to avoid SSR/client hydration mismatch
+function GlobalStyles() {
+  useEffect(() => {
+    // Font link
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href =
+      "https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&display=swap";
+    document.head.appendChild(link);
 
-const STYLES = `
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  :root {
-    --bg: #0d0d0f; --surface: #141416; --surface2: #1c1c1f; --surface3: #242428;
-    --border: #2a2a2f; --border2: #3a3a40;
-    --text: #f0ede8; --text2: #9b9893; --text3: #5a5855;
-    --accent: #e8d5a3; --accent2: #c9a96e;
-    --green: #7bc4a0; --red: #d97b7b; --blue: #7badc4; --purple: #b07bc4;
-    --font-display: 'Syne', sans-serif; --font-mono: 'DM Mono', monospace;
-    --radius: 12px; --radius-sm: 8px;
-  }
-  body { background: var(--bg); color: var(--text); font-family: var(--font-display); }
-  ::-webkit-scrollbar { width: 4px; }
-  ::-webkit-scrollbar-track { background: transparent; }
-  ::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 2px; }
-  input, textarea, select {
-    background: var(--surface2); border: 1px solid var(--border); color: var(--text);
-    font-family: var(--font-mono); font-size: 13px; border-radius: var(--radius-sm);
-    padding: 8px 12px; outline: none; transition: border-color 0.2s; width: 100%;
-  }
-  input:focus, textarea:focus, select:focus { border-color: var(--accent2); }
-  input::placeholder, textarea::placeholder { color: var(--text3); }
-  button { cursor: pointer; font-family: var(--font-display); border: none; outline: none; transition: all 0.15s; }
-  select option { background: var(--surface2); }
-  @keyframes spin { to { transform: rotate(360deg); } }
-  @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
-  .fade-in { animation: fadeIn 0.2s ease forwards; }
-`;
+    // Styles
+    const style = document.createElement("style");
+    style.id = "focus-board-styles";
+    if (!document.getElementById("focus-board-styles")) {
+      style.textContent = [
+        "* { margin: 0; padding: 0; box-sizing: border-box; }",
+        ":root {",
+        "  --bg: #0d0d0f; --surface: #141416; --surface2: #1c1c1f; --surface3: #242428;",
+        "  --border: #2a2a2f; --border2: #3a3a40;",
+        "  --text: #f0ede8; --text2: #9b9893; --text3: #5a5855;",
+        "  --accent: #e8d5a3; --accent2: #c9a96e;",
+        "  --green: #7bc4a0; --red: #d97b7b; --blue: #7badc4; --purple: #b07bc4;",
+        "  --font-display: 'Syne', sans-serif; --font-mono: 'DM Mono', monospace;",
+        "  --radius: 12px; --radius-sm: 8px;",
+        "}",
+        "body { background: var(--bg); color: var(--text); font-family: var(--font-display); }",
+        "::-webkit-scrollbar { width: 4px; }",
+        "::-webkit-scrollbar-track { background: transparent; }",
+        "::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 2px; }",
+        "input, textarea, select {",
+        "  background: var(--surface2); border: 1px solid var(--border); color: var(--text);",
+        "  font-family: var(--font-mono); font-size: 13px; border-radius: var(--radius-sm);",
+        "  padding: 8px 12px; outline: none; transition: border-color 0.2s; width: 100%;",
+        "}",
+        "input:focus, textarea:focus, select:focus { border-color: var(--accent2); }",
+        "input::placeholder, textarea::placeholder { color: var(--text3); }",
+        "button { cursor: pointer; font-family: var(--font-display); border: none; outline: none; transition: all 0.15s; }",
+        "select option { background: var(--surface2); }",
+        "@keyframes spin { to { transform: rotate(360deg); } }",
+        "@keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }",
+        ".fade-in { animation: fadeIn 0.2s ease forwards; }",
+      ].join("\n");
+      document.head.appendChild(style);
+    }
+
+    return () => {
+      document.getElementById("focus-board-styles")?.remove();
+    };
+  }, []);
+
+  return null;
+}
 
 // ─── Icons ────────────────────────────────────────────────
 const Icon = ({ d, size = 16, stroke = "currentColor", fill = "none" }) => (
@@ -1876,7 +1898,7 @@ export default function FocusBoard() {
   if (authLoading)
     return (
       <>
-        <style>{FONTS + STYLES}</style>
+        <GlobalStyles />
         <div
           style={{
             minHeight: "100vh",
@@ -1895,7 +1917,7 @@ export default function FocusBoard() {
   if (!user)
     return (
       <>
-        <style>{FONTS + STYLES}</style>
+        <GlobalStyles />
         <AuthScreen onAuth={setUser} />
       </>
     );
@@ -1911,7 +1933,7 @@ export default function FocusBoard() {
 
   return (
     <>
-      <style>{FONTS + STYLES}</style>
+      <GlobalStyles />
       <div
         style={{
           minHeight: "100vh",
