@@ -27,7 +27,7 @@ Focus Board is a single-platform productivity application that replaces the need
 
 > Secure email/password login and sign-up with session persistence across page reloads.
 
-![Auth Screen](focusboard/auth.svg)
+![Auth Screen](./auth.svg)
 
 ---
 
