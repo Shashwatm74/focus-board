@@ -1,259 +1,249 @@
-# Focus Board Application for Study and Management
+<div align="center">
 
-## 1. Introduction
+# ✦ Focus Board
 
-This report presents the concept and proposed structure of a **Focus
-Board**, a productivity web application designed to support both
-**management** and **study-related activities** within a single
-platform. The aim of the application is to bring together the most
-useful features from various productivity tools into one unified
-environment, reducing dependency on multiple apps for daily
-organization.
+**A unified productivity dashboard for students and professionals**
 
-The Focus Board is intended to help users plan tasks, manage routines,
-take quick notes, maintain concentration through timed sessions, and
-review past activity through a history feature. By combining these
-functionalities, the application can create a more organized, efficient,
-and distraction-free workflow.
+<img src="https://img.shields.io/badge/Next.js-15-black?style=flat-square&logo=nextdotjs" alt="Next.js" />
+<img src="https://img.shields.io/badge/Supabase-PostgreSQL-3ECF8E?style=flat-square&logo=supabase&logoColor=white" alt="Supabase" />
+<img src="https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react&logoColor=black" alt="React" />
+<img src="https://img.shields.io/badge/License-MIT-yellow?style=flat-square" alt="License" />
 
-The proposed system will be developed using **Next.js** as the frontend
-and application framework, and **Supabase** as the backend solution for
-authentication, database management, and data synchronization. The user
-interface will follow a **minimalistic design approach**, ensuring
-simplicity, clarity, and ease of use.
+_Plan → Execute → Record → Review_
+
+</div>
 
 ---
 
-## 2. Objective of the Project
+## Overview
 
-The main objective of the Focus Board is to create an integrated
-productivity dashboard that meets essential planning and focus needs for
-both students and working professionals. Instead of using different
-tools for task management, routine planning, note-taking, focus
-sessions, and activity review, the user can rely on a single organized
-platform.
-
-The application is intended to support users in:
-
-- managing tasks and deadlines
-- creating and following routines
-- writing short notes and reminders
-- improving concentration using a pomodoro timer
-- reviewing previous tasks, sessions, and activity through history
-  tracking
-
-The overall objective is to provide a simple yet effective system that
-improves organization, productivity, and self-monitoring.
+Focus Board is a single-platform productivity application that replaces the need to juggle multiple apps for daily organization. It combines task management, routine planning, quick notes, a Pomodoro timer, and activity history into one cohesive, distraction-free environment — backed by Supabase for real-time persistence and user authentication.
 
 ---
 
-## 3. Core Features
+## Screenshots
 
-### 3.1 To-Do List Management
+### 🔐 Authentication
 
-A major feature of the Focus Board will be a **To-Do List** module that
-allows users to create, organize, and track tasks effectively.
+> Secure email/password login and sign-up with session persistence across page reloads.
 
-This feature should support:
-
-- task creation and editing
-- priority selection such as low, medium, or high
-- date and time setting
-- completion tracking
-- filtering and sorting
-- optional categories or tags
-
-This module helps users manage daily responsibilities, study goals,
-assignments, deadlines, and personal work in a structured way.
+![Auth Screen](focusboard/auth.svg)
 
 ---
 
-### 3.2 Timetable Board for Routine Planning
+### ✅ Task Management
 
-The Focus Board will include a **Timetable Board** for planning routines
-and scheduling activities over a day or week.
+> Create, prioritize, filter, and track tasks with tags, due dates, and completion states.
 
-This module should support:
-
-- daily and weekly routine creation
-- time-slot based planning
-- recurring schedules
-- visual routine overview
-- study, work, and personal activity organization
-
-The timetable board is useful for users who need consistency and a clear
-view of how their time is distributed.
+![Tasks Screen](./tasks.svg)
 
 ---
 
-### 3.3 Short Note-Taking Service
+### 📅 Timetable Board
 
-The application will provide a **Short Note-Taking** feature for quickly
-storing ideas, reminders, and important points.
+> Plan your week visually with color-coded time slots across a Mon–Sun grid.
 
-This module should allow users to:
-
-- create and edit quick notes
-- delete notes
-- pin important notes
-- store temporary reminders
-- access notes easily from the dashboard
-
-This feature supports fast information capture without the complexity of
-a full document editor.
+![Timetable Screen](./timetable.svg)
 
 ---
 
-### 3.4 Pomodoro Timer for Focus Sessions
+### 📝 Notes
 
-A **Pomodoro Timer** will be included to help users work or study in
-structured focus intervals.
+> Capture quick ideas and reminders. Pin important notes to keep them at the top.
 
-This feature should support:
-
-- start, pause, and reset functions
-- customizable work and break durations
-- countdown display
-- session tracking
-- automatic switching between focus and break periods if required
-
-This module helps users improve concentration, manage energy, and reduce
-procrastination during study or work sessions.
+![Notes Screen](./notes.svg)
 
 ---
 
-### 3.5 History and Activity Tracking
+### ⏱ Focus Timer
 
-An important additional feature of the Focus Board is a **History**
-module that records and displays past user activity. This feature allows
-users to review what they have completed, how they have used their time,
-and how consistently they have followed their routines.
+> Pomodoro-style countdown with animated ring, customizable durations, and auto session switching.
 
-The history feature should support:
-
-- completed task history
-- past pomodoro session logs
-- routine completion records
-- recently created or modified notes
-- date-wise activity overview
-
-This feature gives users a sense of progress and accountability. It also
-helps in self-analysis by showing productivity patterns.
+![Focus Timer Screen](./timer.svg)
 
 ---
 
-## 4. Proposed Technology Stack
+### 📊 History
 
-### 4.1 Next.js
+> A chronological log of completed tasks and focus sessions, grouped by day.
 
-The frontend and overall application structure will be developed using
-**Next.js**, which is well suited for modern dashboard-based
-applications.
-
-Advantages include:
-
-- React-based component architecture
-- efficient routing and layouts
-- strong performance
-- server-side and client-side rendering support
-- scalability for future enhancements
+![History Screen](./history.svg)
 
 ---
 
-### 4.2 Supabase
+## Features
 
-The backend services will be powered by **Supabase**, which provides a
-PostgreSQL database along with authentication and real-time
-capabilities.
-
-Supabase will be used for:
-
-- user authentication
-- storing to-do items, notes, timetables, timer logs, and history
-- syncing data across sessions
-- managing structured relational data
-- enabling future analytics and reporting
+| Module          | Capabilities                                                                                                       |
+| --------------- | ------------------------------------------------------------------------------------------------------------------ |
+| **Tasks**       | Create, edit, delete tasks · Priority levels (Low / Med / High) · Due dates · Tags · Filter by All / Active / Done |
+| **Timetable**   | Weekly grid (Mon–Sun, 6am–10pm) · Color-coded slots · Custom duration · Delete slots                               |
+| **Notes**       | Quick-capture notes · Inline editing · Pin/unpin · Grid layout · Ctrl+Enter shortcut                               |
+| **Focus Timer** | Pomodoro countdown · Animated SVG ring · Adjustable work/break durations · Auto mode switching · Session counter   |
+| **History**     | Activity log from tasks + timer · Grouped by date · Synced from Supabase · Live refresh on new events              |
+| **Auth**        | Email/password sign-up & login · Supabase session management · Per-user data isolation via RLS                     |
 
 ---
 
-## 5. UI/UX Design Approach
+## Tech Stack
 
-The Focus Board will follow a **minimalistic UI design** to ensure the
-platform remains calm, clean, and productivity-focused.
-
-The design will emphasize:
-
-- clean dashboard layout
-- minimal distractions
-- strong readability
-- soft and neutral color choices
-- easy navigation
-- quick access to essential actions
-- responsive layout across devices
+- **Frontend / Framework** — [Next.js](https://nextjs.org/) (App Router, `"use client"`)
+- **Backend / Database** — [Supabase](https://supabase.com/) (PostgreSQL + Auth + Row Level Security)
+- **Styling** — CSS custom properties injected client-side (no hydration conflicts)
+- **Icons** — Inline SVG paths (zero dependencies)
+- **Fonts** — [Syne](https://fonts.google.com/specimen/Syne) (display) + [DM Mono](https://fonts.google.com/specimen/DM+Mono) (data/code)
 
 ---
 
-## 6. Functional Vision of the Application
+## Database Schema
 
-The Focus Board is intended to work as a complete productivity ecosystem
-rather than a set of isolated tools.
+Four tables are created in your Supabase project, each scoped to the authenticated user via Row Level Security:
 
-Its workflow includes:
+```sql
+todos             -- id, user_id, text, priority, due, done, tags[], created_at
+timetable_slots   -- id, user_id, day, hour, duration, label, color, created_at
+notes             -- id, user_id, text, pinned, created_at, updated_at
+history           -- id, user_id, type, label, time
+```
 
-1.  **To‑Do List** → defines what needs to be done
-2.  **Timetable Board** → structures time and routines
-3.  **Notes** → captures quick information
-4.  **Pomodoro Timer** → enables focused execution
-5.  **History** → reviews progress and productivity patterns
-
-This cycle creates a productivity loop of:
-
-**Plan → Execute → Record → Review**
+All tables have RLS policies ensuring users can only read and write their own rows.
 
 ---
 
-## 7. Expected Benefits
+## Getting Started
 
-The Focus Board can offer the following benefits:
+### Prerequisites
 
-- centralized productivity management
-- reduced app switching
-- better time planning
-- improved focus and discipline
-- quick note capture
-- improved routine consistency
-- productivity review through history tracking
+- Node.js 18+
+- A [Supabase](https://supabase.com) project (free tier works)
+
+### 1. Clone and install
+
+```bash
+git clone https://github.com/your-username/focus-board.git
+cd focus-board
+npm install
+```
+
+### 2. Set up the database
+
+Open your Supabase project → **SQL Editor** → paste and run the contents of [`supabase_schema.sql`](./supabase_schema.sql).
+
+This creates all tables, enables Row Level Security, and sets up the RLS policies.
+
+### 3. Configure environment variables
+
+Create a `.env.local` file in the project root:
+
+```env
+NEXT_PUBLIC_SUPABASE_URL=https://your-project-id.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+```
+
+Find these values in your Supabase dashboard under **Project Settings → API**.
+
+### 4. Place the component
+
+Copy `FocusBoard.jsx` to:
+
+```
+app/page.jsx
+```
+
+### 5. Run the dev server
+
+```bash
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) — sign up, and start using Focus Board.
 
 ---
 
-## 8. Future Scope
+## Project Structure
 
-Future enhancements may include:
+```
+focus-board/
+├── app/
+│   └── page.jsx              ← FocusBoard.jsx (main component)
+├── supabase_schema.sql       ← Run once in Supabase SQL Editor
+├── .env.local                ← Your Supabase credentials (not committed)
+└── package.json
+```
 
-- reminders and notifications
-- recurring task automation
-- productivity analytics and charts
-- goal tracking
-- calendar integration
-- theme customization
-- productivity streak tracking
-- exportable productivity reports
+The entire application is a single self-contained React component. Each module (Tasks, Timetable, Notes, Timer, History, Auth) is a function component defined in the same file for portability.
 
 ---
 
-## 9. Conclusion
+## How It Works
 
-The proposed Focus Board is a unified productivity application that
-integrates essential study and management tools within a single
-environment. By combining a **to‑do list**, **timetable board**, **note
-system**, **pomodoro timer**, and **history tracking**, the application
-supports both planning and reflection.
+```
+User signs up / logs in
+        │
+        ▼
+   Supabase Auth ──── issues JWT session
+        │
+        ▼
+  Dashboard loads ──── fetches user's data from 4 tables
+        │
+   ┌────┴────┬──────────┬──────────┬──────────┐
+   ▼         ▼          ▼          ▼          ▼
+ Tasks   Timetable    Notes     Timer      History
+   │         │          │          │          │
+   └─────────┴──────────┴──────────┴──────────┘
+                        │
+                   All writes go to
+                   Supabase (RLS scoped)
+                        │
+                   History tab re-fetches
+                   on task complete / timer end
+```
 
-Using **Next.js** and **Supabase** provides a modern and scalable
-technical foundation, while the **minimalistic interface** ensures ease
-of use and reduced distraction. The addition of a **history feature**
-further strengthens the application by allowing users to monitor
-progress and maintain accountability.
+---
 
-Overall, the Focus Board has strong potential to serve as an effective
-personal productivity system for both academic and professional users.
+## Productivity Loop
+
+The application is designed around a four-stage cycle:
+
+1. **Plan** — Add tasks in the To-Do module, schedule blocks in the Timetable
+2. **Execute** — Use the Pomodoro timer to work in structured intervals
+3. **Record** — Completed tasks and sessions are automatically logged to History
+4. **Review** — Browse the History tab to reflect on patterns and progress
+
+---
+
+## Future Enhancements
+
+- [ ] Push notifications and due-date reminders
+- [ ] Recurring task automation
+- [ ] Productivity analytics and streak tracking
+- [ ] Calendar integration (Google Calendar sync)
+- [ ] Dark / light theme toggle
+- [ ] Exportable productivity reports (CSV / PDF)
+- [ ] Goal tracking module
+- [ ] Real-time collaboration (Supabase Realtime)
+
+---
+
+## Contributing
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you'd like to change.
+
+1. Fork the repo
+2. Create a feature branch: `git checkout -b feature/your-feature`
+3. Commit your changes: `git commit -m 'Add some feature'`
+4. Push to the branch: `git push origin feature/your-feature`
+5. Open a pull request
+
+---
+
+## License
+
+[MIT](LICENSE) — feel free to use, modify, and distribute.
+
+---
+
+<div align="center">
+
+Built with Next.js · Supabase · ☕
+
+</div>

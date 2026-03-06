@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="560" viewBox="0 0 900 560">
+  <defs>
+    <style>
+      text { font-smoothing: antialiased; }
+    </style>
+  </defs>
+  <rect width="900" height="560" fill="#0d0d0f"/>
+  <!-- header -->
+  <rect width="900" height="50" fill="#141416" stroke="#2a2a2f" stroke-width="1"/>
+  <text x="20" y="32" font-family="Georgia,serif" font-size="18" font-weight="bold" fill="#e8d5a3">Focus</text>
+  <text x="72" y="32" font-family="Georgia,serif" font-size="18" fill="#9b9893">Board</text>
+  <text x="880" y="32" font-family="monospace" font-size="11" fill="#5a5855" text-anchor="end">Fri, Mar 06</text>
+
+  <!-- sidebar -->
+  <rect x="0" y="50" width="180" height="510" fill="#141416" stroke="#2a2a2f" stroke-width="1"/>
+  <text x="38" y="92" font-family="Georgia,serif" font-size="13" fill="#9b9893" font-weight="normal">Tasks</text>
+  <text x="38" y="136" font-family="Georgia,serif" font-size="13" fill="#9b9893" font-weight="normal">Timetable</text>
+  <text x="38" y="180" font-family="Georgia,serif" font-size="13" fill="#9b9893" font-weight="normal">Notes</text>
+  <text x="38" y="224" font-family="Georgia,serif" font-size="13" fill="#9b9893" font-weight="normal">Focus</text>
+  <text x="38" y="268" font-family="Georgia,serif" font-size="13" fill="#9b9893" font-weight="normal">History</text>
+  <text x="20" y="546" font-family="monospace" font-size="10" fill="#5a5855">Fri Mar 06</text>
+  <rect x="180" y="50" width="720" height="510" fill="#0d0d0f"/>
+
+  <rect width="900" height="560" fill="#0d0d0f"/>
+  <!-- centered card -->
+  <rect x="260" y="80" width="380" height="400" rx="16" fill="#141416" stroke="#3a3a40" stroke-width="1"/>
+  <!-- logo -->
+  <text x="450" y="140" font-family="Georgia,serif" font-size="28" font-weight="bold" fill="#e8d5a3" text-anchor="middle">Focus</text>
+  <text x="510" y="140" font-family="Georgia,serif" font-size="28" fill="#9b9893">Board</text>
+  <text x="450" y="162" font-family="monospace" font-size="12" fill="#5a5855" text-anchor="middle">Your personal productivity space</text>
+
+  <!-- tab toggle -->
+  <rect x="280" y="176" width="340" height="36" rx="8" fill="#1c1c1f"/>
+  <rect x="283" y="179" width="166" height="30" rx="6" fill="#242428" stroke="#3a3a40" stroke-width="1"/>
+  <text x="366" y="199" font-family="Georgia,serif" font-size="13" font-weight="bold" fill="#f0ede8" text-anchor="middle">Log In</text>
+  <text x="534" y="199" font-family="Georgia,serif" font-size="13" fill="#5a5855" text-anchor="middle">Sign Up</text>
+
+  <!-- email field -->
+  <text x="280" y="234" font-family="monospace" font-size="10" fill="#5a5855" letter-spacing="1">EMAIL</text>
+  <rect x="280" y="240" width="340" height="36" rx="8" fill="#1c1c1f" stroke="#2a2a2f" stroke-width="1"/>
+  <text x="294" y="263" font-family="monospace" font-size="12" fill="#5a5855">you@example.com</text>
+
+  <!-- password field -->
+  <text x="280" y="296" font-family="monospace" font-size="10" fill="#5a5855" letter-spacing="1">PASSWORD</text>
+  <rect x="280" y="302" width="340" height="36" rx="8" fill="#1c1c1f" stroke="#2a2a2f" stroke-width="1"/>
+  <text x="294" y="325" font-family="monospace" font-size="18" fill="#5a5855">••••••••</text>
+
+  <!-- login button -->
+  <rect x="280" y="360" width="340" height="42" rx="9" fill="#e8d5a3"/>
+  <text x="450" y="387" font-family="Georgia,serif" font-size="14" font-weight="bold" fill="#0d0d0f" text-anchor="middle">Log In</text>
+
+  <!-- decorative bg dots -->
+  <circle cx="80" cy="100" r="60" fill="#e8d5a3" opacity="0.03"/>
+  <circle cx="820" cy="480" r="80" fill="#7badc4" opacity="0.04"/>
+
+</svg>
